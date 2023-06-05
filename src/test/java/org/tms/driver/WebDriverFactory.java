@@ -9,7 +9,7 @@ import org.openqa.selenium.opera.OperaDriver;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
-    private final static int WAIT_TIMEOUT = 10;
+    private final static int WAIT_TIMEOUT_SECONDS = 10;
 
     private WebDriverFactory() {
     }
@@ -33,7 +33,7 @@ public class WebDriverFactory {
             }
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
         return driver;
     }
 

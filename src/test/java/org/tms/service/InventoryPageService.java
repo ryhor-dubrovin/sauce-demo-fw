@@ -8,4 +8,8 @@ public class InventoryPageService {
     public String getActualNameOfPageText() {
         return inventoryPage.getNameOfPageText();
     }
+
+    public String getShoppingCartText() {
+        return inventoryPage.getShoppingCartBadge().getText();
+    }
 }
