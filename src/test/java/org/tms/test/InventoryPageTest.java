@@ -21,7 +21,8 @@ public class InventoryPageTest extends BaseTest {
         User user = new User("standard_user", "secret_sauce");
         InventoryPageService inventoryPageService = loginPageService.login(user);
         InventoryPage inventoryPage = new InventoryPage();
-        boolean isRemoveButtonDisplayed = inventoryPage.clickAddBackPackToCartButton()
+        boolean isRemoveButtonDisplayed = inventoryPage
+                .clickAddBackPackToCartButton()
                 .getRemoveBackPackFromCartButton()
                 .isDisplayed();
         String actualText = inventoryPageService

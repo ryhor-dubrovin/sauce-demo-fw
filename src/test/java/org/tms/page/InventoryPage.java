@@ -12,6 +12,7 @@ public class InventoryPage extends BasePage {
     private WebElement removeBackPackFromCartButton;
     @FindBy(xpath = "//span[@class='shopping_cart_badge']")
     private WebElement shoppingCartBadge;
+
     public String getNameOfPageText() {
         return waitVisibilityOf(nameOfPage).getText();
     }
@@ -20,6 +21,7 @@ public class InventoryPage extends BasePage {
         waitElementToBeClickable(addBackPackToCartButton).click();
         return this;
     }
+
     public InventoryPage clickRemoveBackPackFromCartButton() {
         getRemoveBackPackFromCartButton().click();
         return this;
