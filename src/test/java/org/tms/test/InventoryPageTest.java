@@ -20,11 +20,9 @@ public class InventoryPageTest extends BaseTest {
     public void addBackpackToCartTest() {
         User user = new User("standard_user", "secret_sauce");
         InventoryPageService inventoryPageService = loginPageService.login(user);
-        InventoryPage inventoryPage = new InventoryPage();
-        boolean isRemoveButtonDisplayed = inventoryPage
-                .clickAddBackPackToCartButton()
-                .getRemoveBackPackFromCartButton()
-                .isDisplayed();
+        boolean isRemoveButtonDisplayed = inventoryPageService
+                .clickAddBackpackButton()
+                .isRemoveBackpackButtonDisplayed();
         String actualText = inventoryPageService
                 .getShoppingCartText();
         Assert.assertTrue(isRemoveButtonDisplayed, "Remove button don't displayed");
@@ -35,12 +33,10 @@ public class InventoryPageTest extends BaseTest {
     public void addAndRemoveBackpackFromCartTest() {
         User user = new User("standard_user", "secret_sauce");
         InventoryPageService inventoryPageService = loginPageService.login(user);
-        InventoryPage inventoryPage = new InventoryPage();
-        boolean isAddButtonDisplayed = inventoryPage
-                .clickAddBackPackToCartButton()
-                .clickRemoveBackPackFromCartButton()
-                .getAddBackPackToCartButton()
-                .isDisplayed();
+        boolean isAddButtonDisplayed = inventoryPageService
+                .clickAddBackpackButton()
+                .clickRemoveBackpackButton()
+                .isAddBackpackButtonDisplayed();
         String shoppingCartText = inventoryPageService
                 .getShoppingCartText();
         Assert.assertTrue(isAddButtonDisplayed,"Add button don't displayed");

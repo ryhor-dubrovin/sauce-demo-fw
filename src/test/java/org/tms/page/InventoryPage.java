@@ -7,9 +7,9 @@ public class InventoryPage extends BasePage {
     @FindBy(xpath = "//span[@class='title']")
     private WebElement nameOfPage;
     @FindBy(xpath = "//button[@id='add-to-cart-sauce-labs-backpack']")
-    private WebElement addBackPackToCartButton;
+    private WebElement addBackpackToCartButton;
     @FindBy(xpath = "//button[@id='remove-sauce-labs-backpack']")
-    private WebElement removeBackPackFromCartButton;
+    private WebElement removeBackpackFromCartButton;
     @FindBy(xpath = "//span[@class='shopping_cart_badge']")
     private WebElement shoppingCartBadge;
 
@@ -17,25 +17,16 @@ public class InventoryPage extends BasePage {
         return waitVisibilityOf(nameOfPage).getText();
     }
 
-    public InventoryPage clickAddBackPackToCartButton() {
-        waitElementToBeClickable(addBackPackToCartButton).click();
-        return this;
-    }
-
-    public InventoryPage clickRemoveBackPackFromCartButton() {
-        getRemoveBackPackFromCartButton().click();
-        return this;
-    }
-
-    public WebElement getRemoveBackPackFromCartButton() {
-        return waitElementToBeClickable(removeBackPackFromCartButton);
+    public WebElement getRemoveBackpackFromCartButton() {
+        return waitElementToBeClickable(removeBackpackFromCartButton);
     }
 
     public WebElement getShoppingCartBadge() {
         return shoppingCartBadge;
     }
 
-    public WebElement getAddBackPackToCartButton() {
-        return waitElementToBeClickable(addBackPackToCartButton);
+    public WebElement getAddBackpackToCartButton() {
+        return waitElementToBeClickable(addBackpackToCartButton);
     }
+
 }
