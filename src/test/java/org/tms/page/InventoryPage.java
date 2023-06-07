@@ -19,6 +19,7 @@ public class InventoryPage extends BasePage {
     public static String getExpectedNameOfPage() {
         return EXPECTED_NAME_OF_PAGE;
     }
+
     public String getNameOfPageText() {
         return waitVisibilityOf(actualNameOfPage).getText();
     }

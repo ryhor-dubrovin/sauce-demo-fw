@@ -3,6 +3,7 @@ package org.tms.test;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import org.tms.model.User;
 import org.tms.page.InventoryPage;
 import org.tms.service.InventoryPageService;
@@ -20,26 +21,30 @@ public class InventoryPageTest extends BaseTest {
     public void addFirstItemToCartTest() {
         User user = new User("standard_user", "secret_sauce");
         InventoryPageService inventoryPageService = loginPageService.login(user);
+        SoftAssert softAssert = new SoftAssert();
         boolean isRemoveButtonDisplayed = inventoryPageService
                 .clickAddToCartButton(0)
                 .isRemoveFromCartButtonDisplayed(0);
         String actualText = inventoryPageService
                 .getShoppingCartText();
-        Assert.assertTrue(isRemoveButtonDisplayed, "Remove button don't displayed");
+        softAssert.assertTrue(isRemoveButtonDisplayed, "Remove button don't displayed");
         Assert.assertEquals(actualText,"1", "Shopping cart value not match");
+        softAssert.assertAll();
     }
 
     @Test
     public void addAndRemoveFirstItemFromCartTest() {
         User user = new User("standard_user", "secret_sauce");
         InventoryPageService inventoryPageService = loginPageService.login(user);
+        SoftAssert softAssert = new SoftAssert();
         boolean isRemoveButtonDisplayed = inventoryPageService
                 .clickAddToCartButton(0)
                 .clickRemoveFromCartButton(0)
                 .isRemoveFromCartButtonDisplayed(0);
         String shoppingCartText = inventoryPageService
                 .getShoppingCartText();
-        Assert.assertFalse(isRemoveButtonDisplayed,"Remove button displayed");
+        softAssert.assertFalse(isRemoveButtonDisplayed,"Remove button displayed");
         Assert.assertEquals(shoppingCartText, "", "Shopping cart value not match");
+        softAssert.assertAll();
     }
 }
