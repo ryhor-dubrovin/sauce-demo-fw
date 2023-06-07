@@ -14,21 +14,22 @@ public class InventoryPageService {
         return inventoryPage.getShoppingCartBadge().getText();
     }
 
-    public InventoryPageService clickAddBackpackButton() {
-        inventoryPage.getAddBackpackToCartButton().click();
+    public InventoryPageService clickAddToCartButton(int index) {
+        inventoryPage.getAddToCartButton(index).click();
         return this;
     }
 
-    public InventoryPageService clickRemoveBackpackButton() {
-        inventoryPage.getRemoveBackpackFromCartButton().click();
+    public InventoryPageService clickRemoveFromCartButton(int index) {
+        inventoryPage.getRemoveFromCartButton(index).click();
         return this;
     }
 
-    public boolean isRemoveBackpackButtonDisplayed() {
-        return inventoryPage.getRemoveBackpackFromCartButton().isDisplayed();
+    public boolean isAddToCartButtonDisplayed(int index) {
+        return inventoryPage.getAddToCartButton(index).isDisplayed();
     }
 
-    public boolean isAddBackpackButtonDisplayed() {
-        return inventoryPage.getAddBackpackToCartButton().isDisplayed();
+    public boolean isRemoveFromCartButtonDisplayed(int index) {
+        return inventoryPage.getRemoveFromCartButton(index).isDisplayed();
     }
+
 }

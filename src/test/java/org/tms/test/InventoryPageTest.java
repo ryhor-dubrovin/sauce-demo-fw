@@ -17,12 +17,12 @@ public class InventoryPageTest extends BaseTest {
     }
 
     @Test
-    public void addBackpackToCartTest() {
+    public void addFirstItemToCartTest() {
         User user = new User("standard_user", "secret_sauce");
         InventoryPageService inventoryPageService = loginPageService.login(user);
         boolean isRemoveButtonDisplayed = inventoryPageService
-                .clickAddBackpackButton()
-                .isRemoveBackpackButtonDisplayed();
+                .clickAddToCartButton(0)
+                .isRemoveFromCartButtonDisplayed(0);
         String actualText = inventoryPageService
                 .getShoppingCartText();
         Assert.assertTrue(isRemoveButtonDisplayed, "Remove button don't displayed");
@@ -30,16 +30,16 @@ public class InventoryPageTest extends BaseTest {
     }
 
     @Test
-    public void addAndRemoveBackpackFromCartTest() {
+    public void addAndRemoveFirstItemFromCartTest() {
         User user = new User("standard_user", "secret_sauce");
         InventoryPageService inventoryPageService = loginPageService.login(user);
-        boolean isAddButtonDisplayed = inventoryPageService
-                .clickAddBackpackButton()
-                .clickRemoveBackpackButton()
-                .isAddBackpackButtonDisplayed();
+        boolean isRemoveButtonDisplayed = inventoryPageService
+                .clickAddToCartButton(0)
+                .clickRemoveFromCartButton(0)
+                .isRemoveFromCartButtonDisplayed(0);
         String shoppingCartText = inventoryPageService
                 .getShoppingCartText();
-        Assert.assertTrue(isAddButtonDisplayed,"Add button don't displayed");
+        Assert.assertFalse(isRemoveButtonDisplayed,"Remove button displayed");
         Assert.assertEquals(shoppingCartText, "", "Shopping cart value not match");
     }
 }
