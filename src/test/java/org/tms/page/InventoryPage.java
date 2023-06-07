@@ -32,7 +32,7 @@ public class InventoryPage extends BasePage {
     }
 
     public WebElement getShoppingCartBadge() {
-        return shoppingCartBadge;
+        return waitVisibilityOf(shoppingCartBadge);
     }
 
 }
