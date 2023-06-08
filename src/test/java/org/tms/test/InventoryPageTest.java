@@ -11,6 +11,9 @@ import org.tms.service.LoginPageService;
 
 public class InventoryPageTest extends BaseTest {
     private LoginPageService loginPageService;
+    private static final String EXPECTED_EMPTY_CART_VALUE = "";
+    private static final String EXPECTED_ONE_ITEM_CART_VALUE = "1";
+
 
     @BeforeClass
     public void setUp() {
@@ -25,10 +28,10 @@ public class InventoryPageTest extends BaseTest {
         boolean isRemoveButtonDisplayed = inventoryPageService
                 .clickAddToCartButton(0)
                 .isRemoveFromCartButtonDisplayed(0);
-        String actualText = inventoryPageService
+        String actualShoppingCartValue = inventoryPageService
                 .getShoppingCartText();
         softAssert.assertTrue(isRemoveButtonDisplayed, "Remove button don't displayed");
-        Assert.assertEquals(actualText,"1", "Shopping cart value not match");
+        Assert.assertEquals(actualShoppingCartValue,EXPECTED_ONE_ITEM_CART_VALUE, "Shopping cart value not match");
         softAssert.assertAll();
     }
 
@@ -41,10 +44,10 @@ public class InventoryPageTest extends BaseTest {
                 .clickAddToCartButton(0)
                 .clickRemoveFromCartButton(0)
                 .isRemoveFromCartButtonDisplayed(0);
-        String shoppingCartText = inventoryPageService
+        String actualShoppingCartValue = inventoryPageService
                 .getShoppingCartText();
         softAssert.assertFalse(isRemoveButtonDisplayed,"Remove button displayed");
-        Assert.assertEquals(shoppingCartText, "", "Shopping cart value not match");
+        Assert.assertEquals(actualShoppingCartValue, EXPECTED_EMPTY_CART_VALUE, "Shopping cart value not match");
         softAssert.assertAll();
     }
 }
