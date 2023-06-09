@@ -9,17 +9,17 @@ import org.tms.driver.DriverSingleton;
 
 public abstract class BasePage {
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
-    private final static int WAIT_TIMEOUT_SECONDS = 20;
+    private final static int WAIT_TIMEOUT_SECONDS = 10;
 
     protected BasePage() {
         PageFactory.initElements(driver, this);
     }
 
-    protected WebElement waitVisibilityOf(WebElement element) {
-        return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(element));
+    protected WebElement waitVisibilityOf(WebElement webElement) {
+        return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(webElement));
     }
 
-    protected WebElement waitElementToBeClickable(WebElement element) {
-        return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(element));
+    protected WebElement waitElementToBeClickable(WebElement webElement) {
+        return new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(webElement));
     }
 }

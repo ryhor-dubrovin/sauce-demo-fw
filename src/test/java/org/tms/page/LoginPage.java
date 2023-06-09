@@ -29,4 +29,5 @@ public class LoginPage extends BasePage {
     public void clickLoginButton() {
         waitElementToBeClickable(loginButton).click();
     }
+
 }
