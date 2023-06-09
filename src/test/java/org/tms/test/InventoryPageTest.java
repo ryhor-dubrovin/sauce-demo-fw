@@ -52,3 +52,4 @@ public class InventoryPageTest extends BaseTest {
         softAssert.assertAll();
     }
 }
+
