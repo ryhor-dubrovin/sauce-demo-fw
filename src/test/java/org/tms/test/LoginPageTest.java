@@ -8,6 +8,8 @@ import org.tms.page.LoginPage;
 import org.tms.service.InventoryPageService;
 import org.tms.service.LoginPageService;
 
+import static org.tms.page.InventoryPage.getExpectedNameOfPage;
+
 public class LoginPageTest extends BaseTest {
     private LoginPageService loginPageService;
 
@@ -21,7 +23,6 @@ public class LoginPageTest extends BaseTest {
         User user = new User("standard_user", "secret_sauce");
         InventoryPageService inventoryPageService = loginPageService.login(user);
         String actualTextOfInventoryPage = inventoryPageService.getActualNameOfPageText();
-        String expectedInventoryPageText = "Products";
-        Assert.assertEquals(actualTextOfInventoryPage, expectedInventoryPageText, "Inventory page text don't match.");
+        Assert.assertEquals(actualTextOfInventoryPage, getExpectedNameOfPage(), "Inventory page text don't match.");
     }
 }

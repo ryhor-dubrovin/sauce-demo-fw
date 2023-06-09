@@ -9,14 +9,14 @@ import org.openqa.selenium.opera.OperaDriver;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverFactory {
-    private final static int WAIT_TIMEOUT = 10;
+    private final static int WAIT_TIMEOUT_SECONDS = 5;
 
     private WebDriverFactory() {
     }
 
     public static WebDriver getWebDriver() {
         WebDriver driver = null;
-        switch (System.setProperty("browser", "chrome")) {
+        switch (System.getProperty("browser", "chrome")) {
             case "firefox": {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
@@ -33,7 +33,7 @@ public class WebDriverFactory {
             }
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
         return driver;
     }
 
