@@ -13,7 +13,7 @@ public class InventoryPage extends BasePage {
     private List<WebElement> addToCartButton;
     @FindBy(xpath = "//button[contains(text(), 'Remove')]")
     private List<WebElement> removeFromCartButton;
-    @FindBy(xpath = "//span[@class='shopping_cart_badge']")
+    @FindBy(xpath = "//a[@class='shopping_cart_link']")
     private WebElement shoppingCartBadge;
 
     public static String getExpectedNameOfPage() {
@@ -36,4 +36,11 @@ public class InventoryPage extends BasePage {
         return waitVisibilityOf(shoppingCartBadge);
     }
 
+    public List<WebElement> getAddToCartButton() {
+        return addToCartButton;
+    }
+
+    public List<WebElement> getRemoveFromCartButton() {
+        return removeFromCartButton;
+    }
 }

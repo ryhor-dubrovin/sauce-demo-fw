@@ -4,16 +4,7 @@
     <test name="Login PageTest1">
         <classes>
             <class name="org.tms.test.LoginPageTest"/>
+            <class name="org.tms.test.InventoryPageTest"/>
         </classes>
     </test>
-        <test name="Login PageTest2">
-            <classes>
-                <class name="org.tms.test.LoginPageTest"/>
-            </classes>
-        </test>
-        <test name="Login PageTest3">
-            <classes>
-                <class name="org.tms.test.LoginPageTest"/>
-            </classes>
-        </test>
 </suite>

@@ -10,7 +10,7 @@ public class InventoryPageService {
         return inventoryPage.getNameOfPageText();
     }
 
-    public String getShoppingCartText() {
+    public String getShoppingCartValue() {
         return inventoryPage.getShoppingCartBadge().getText();
     }
 
@@ -30,6 +30,15 @@ public class InventoryPageService {
 
     public boolean isRemoveFromCartButtonDisplayed(int index) {
         return inventoryPage.getRemoveFromCartButton(index).isDisplayed();
+//        return inventoryPage.getRemoveFromCartButton(index) != null;
+    }
+
+    public int getNumberOfRemoveButtons() {
+        return inventoryPage.getRemoveFromCartButton().toArray().length;
+    }
+
+    public int getNumberOfAddButtons() {
+        return inventoryPage.getAddToCartButton().toArray().length;
     }
 
 }
