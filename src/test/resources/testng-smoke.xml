@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Smoke" parallel="tests" thread-count="1">
+<suite name="Smoke" parallel="tests" thread-count="3">
     <test name="Login PageTest1">
         <classes>
             <class name="org.tms.test.LoginPageTest"/>
+            <class name="org.tms.test.InventoryPageTest"/>
         </classes>
     </test>
-    <!--    <test name="Login PageTest2">-->
-    <!--        <classes>-->
-    <!--            <class name="org.tms.test.LoginPageTest"/>-->
-    <!--        </classes>-->
-    <!--    </test>-->
-    <!--    <test name="Login PageTest3">-->
-    <!--        <classes>-->
-    <!--            <class name="org.tms.test.LoginPageTest"/>-->
-    <!--        </classes>-->
-    <!--    </test>-->
 </suite>
