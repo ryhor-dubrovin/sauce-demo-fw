@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: 'master0', url: 'https://github.com/ryhor-dubrovin/sauce-demo-fw.git'
+                git url: 'https://github.com/ryhor-dubrovin/sauce-demo-fw.git'
 
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true -Dbrowser=chrome -Dsurefire.suiteXmlFiles=src/test/resources/testng-smoke.xml clean test"
