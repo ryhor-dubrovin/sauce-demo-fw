@@ -9,7 +9,7 @@ import org.tms.service.InventoryPageService;
 import org.tms.service.LoginPageService;
 
 public class InventoryPageTest extends BaseTest {
-    private static final String EMPTY_CART_VALUE = "";
+    private static final  String EMPTY_CART_VALUE = "";
     private static final String ONE_ITEM_CART_VALUE = "1";
     public static final int REMOVE_BUTTONS_COUNT_ON_EMPTY_CART = 0;
     public static final int REMOVE_BUTTONS_COUNT_ON_ONE_ITEM_CART = 1;
